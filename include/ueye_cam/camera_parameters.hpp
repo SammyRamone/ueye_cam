@@ -123,7 +123,7 @@ struct CameraParameters {
   int green_gain;                    /**< Green gain percentage [min:0, max:100] */
   int blue_gain;                     /**< Blue gain percentage [min:0, max:100] */
   bool gain_boost;                   /**< Analog gain boost */
-  int software_gamma;                /**< Software gamma percentage [min:1, max:100] */
+  //int software_gamma;                /**< Software gamma percentage [min:1, max:100] */
 
   bool auto_exposure;                /**< Auto exposure (aka auto shutter)*/
   double auto_exposure_reference;    /**< Target for the exposure/gain brightness controller" [min:0.0, max:255.0]*/
@@ -166,7 +166,7 @@ struct CameraParameters {
     green_gain(0),
     blue_gain(0),
     gain_boost(false),
-    software_gamma(100),
+    //software_gamma(100),
     auto_exposure(false),
     auto_exposure_reference(128.0),
     exposure(33.0),

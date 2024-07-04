@@ -626,7 +626,7 @@ void Node::declareROSCameraParameters(const CameraParameters& defaults) {
   this->declare_parameter("green_gain",                rclcpp::ParameterValue(defaults.green_gain));
   this->declare_parameter("blue_gain",                 rclcpp::ParameterValue(defaults.blue_gain));
   this->declare_parameter("gain_boost",                rclcpp::ParameterValue(defaults.gain_boost));
-  this->declare_parameter("software_gamma",            rclcpp::ParameterValue(defaults.software_gamma));
+  //this->declare_parameter("software_gamma",            rclcpp::ParameterValue(defaults.software_gamma));
   this->declare_parameter("auto_exposure",             rclcpp::ParameterValue(defaults.auto_exposure));
   this->declare_parameter("auto_exposure_reference",   rclcpp::ParameterValue(defaults.auto_exposure_reference));
   this->declare_parameter("exposure",                  rclcpp::ParameterValue(defaults.exposure));
@@ -690,7 +690,7 @@ const CameraParameters Node::fetchROSCameraParameters() const {
   this->get_parameter<int>("green_gain",                parameters.green_gain);
   this->get_parameter<int>("blue_gain",                 parameters.blue_gain);
   this->get_parameter<bool>("gain_boost",               parameters.gain_boost);
-  this->get_parameter<int>("software_gamma",            parameters.software_gamma);
+  //this->get_parameter<int>("software_gamma",            parameters.software_gamma);
   this->get_parameter<bool>("auto_exposure",            parameters.auto_exposure);
   this->get_parameter<double>("auto_exposure_reference",parameters.auto_exposure_reference);
   this->get_parameter<double>("exposure",               parameters.exposure);
@@ -771,7 +771,7 @@ rcl_interfaces::msg::SetParametersResult Node::onParameterChange(std::vector<rcl
       else if (parameter.get_name() == "green_gain" ) { new_parameters.green_gain = parameter.as_int(); }
       else if (parameter.get_name() == "blue_gain" ) { new_parameters.blue_gain = parameter.as_int(); }
       else if (parameter.get_name() == "gain_boost" ) { new_parameters.gain_boost = parameter.as_bool(); }
-      else if (parameter.get_name() == "software_gamma" ) { new_parameters.software_gamma = parameter.as_int(); }
+      //else if (parameter.get_name() == "software_gamma" ) { new_parameters.software_gamma = parameter.as_int(); }
       else if (parameter.get_name() == "auto_exposure" ) { new_parameters.auto_exposure = parameter.as_bool(); }
       else if (parameter.get_name() == "auto_exposure_reference" ) { new_parameters.auto_exposure_reference = parameter.as_double(); }
       else if (parameter.get_name() == "exposure" ) { new_parameters.exposure = parameter.as_double(); }

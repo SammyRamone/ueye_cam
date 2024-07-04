@@ -215,7 +215,7 @@ std::string CameraParameters::to_str() const {
   ostream << "  Green Gain:\t\t\t" << green_gain << "\n";
   ostream << "  Blue Gain:\t\t\t" << blue_gain << "\n";
   ostream << "  Gain Boost:\t\t\t" << gain_boost << "\n";
-  ostream << "  Software Gamma:\t\t" << software_gamma << "\n";
+  //ostream << "  Software Gamma:\t\t" << software_gamma << "\n";
   ostream << "  Auto Exposure:\t\t" << auto_exposure << "\n";
   ostream << "  Auto Exposure Reference:\t" << auto_exposure_reference << "\n";
   ostream << "  Exposure (ms):\t\t" << exposure << "\n";

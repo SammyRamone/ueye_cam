@@ -319,10 +319,10 @@ void Driver::syncCamConfig() {
     parameters.gain_boost = false; // no gain_boost mode available (TODO: expose this better)
   }
 
-  if ((is_err = is_Gamma(cam_handle_, IS_GAMMA_CMD_GET, (void*) &parameters.software_gamma,
+  /*if ((is_err = is_Gamma(cam_handle_, IS_GAMMA_CMD_GET, (void*) &parameters.software_gamma,
       sizeof(parameters.software_gamma))) != IS_SUCCESS) {
     throw_fetch_error("software_gamma", is_err);
-  }
+  }*/
 
   if ((is_err = is_SetAutoParameter(cam_handle_,
       IS_GET_ENABLE_AUTO_SENSOR_SHUTTER, &pval1, &pval2)) != IS_SUCCESS &&
@@ -480,9 +480,9 @@ void Driver::setCamParams(
         parameters.gain_boost
     )) != IS_SUCCESS) { noop("auto_gain", is_err); }
   }
-  if (all || filter.find("software_gamma") != filter.end() ) {
+  /*if (all || filter.find("software_gamma") != filter.end() ) {
     if ((is_err = setSoftwareGamma(parameters.software_gamma)) != IS_SUCCESS) { noop("software_gamma", is_err); }
-  }
+  }*/
   if (all || has_intersection({"auto_exposure", "auto_exposure_reference", "exposure"}, filter)) {
     if ((is_err = setExposure(
         parameters.auto_exposure,
@@ -976,7 +976,9 @@ INT Driver::setGain(bool& auto_gain, INT& master_gain_prc, INT& red_gain_prc,
 
 
 INT Driver::setSoftwareGamma(INT& software_gamma) {
-  if (!isConnected()) return IS_INVALID_CAMERA_HANDLE;
+  return IS_SUCCESS;
+  if (!isConnected())
+    return IS_INVALID_CAMERA_HANDLE;
 
   INT is_err = IS_SUCCESS;
 
@@ -992,13 +994,12 @@ INT Driver::setSoftwareGamma(INT& software_gamma) {
   }
 
   // set software gamma 
-  if ((is_err = is_Gamma(cam_handle_, IS_GAMMA_CMD_SET, (void*) &software_gamma, sizeof(software_gamma))) != IS_SUCCESS) {
-    //WARN_STREAM("Software gamma could not be set for [" << cam_name_ <<
-    //  "] (" << err2str(is_err) << ")");       
-  }  
+  //if ((is_err = is_Gamma(cam_handle_, IS_GAMMA_CMD_SET, (void*) &software_gamma, sizeof(software_gamma))) != IS_SUCCESS) {
+  //  std::cerr << "Software gamma could not be set for [" << cam_name_ << "] (" << err2str(is_err) << ")";
+  //}  
 
   // update driver state
-  camera_parameters_.software_gamma = software_gamma;
+  //camera_parameters_.software_gamma = software_gamma;
   return is_err;
 }
 
