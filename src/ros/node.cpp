@@ -233,6 +233,7 @@ Node::Node(const rclcpp::NodeOptions & options):
   // Set parameters on the camera. Surrender with useful information to the user if it fails.
   try {
     setCamParams(camera_parameters);
+    setFrameRate(false, 30.0);//todo hack
   } catch (const std::runtime_error& e) {
     std::ostringstream ostream;
     ostream << "cannot set parameters on camera '" << node_parameters_.camera_name << "', aborting.";

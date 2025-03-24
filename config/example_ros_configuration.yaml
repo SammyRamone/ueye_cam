@@ -11,11 +11,16 @@ ueye_cam:
     camera_id: 1                # 0 : ANY_CAMERA
     # Camera parameters: for defaults, ueye_cam/camera_parameters.hpp
     auto_frame_rate: false
-    frame_rate: 15.0
+    frame_rate: 30.0
+    output_rate: 30.0
     color_mode: bgr8
-    auto_gain: true
-    auto_white_balance: true
-    image_width: 2592 
-    image_height: 1944
+    auto_gain: false
+    auto_white_balance: false
+    image_width: 800
+    image_height: 480
     image_top: 0 #-1: center 
     image_left: 0 #-1: center
+    auto_exposure: false
+    master_gain: 0
+    exposure: 1.0
+    auto_exposure_reference: 50.0
